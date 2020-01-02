@@ -12,7 +12,8 @@ from secrets import NAS_SERVER, NAS_USER, NAS_PASSWORD
 paramiko.util.log_to_file("paramiko.log")
 THRESHOLD = 6  # days
 DIRS_TO_CHECK = ['NAS/Backup/rpi3-influxdb',
-                 'NAS/Backup/rpi3-unifi']
+                 'NAS/Backup/rpi3-unifi',
+                 'NAS/Backup/rpi3-grafana']
 
 
 def send_mail(message):
