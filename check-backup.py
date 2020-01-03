@@ -12,8 +12,8 @@ from secrets import NAS_SERVER, NAS_USER, NAS_PASSWORD
 paramiko.util.log_to_file("paramiko.log")
 THRESHOLD = 6  # days
 DIRS_TO_CHECK = ['NAS/Backup/rpi3-influxdb',
-                 'NAS/Backup/rpi3-unifi',
-                 'NAS/Backup/rpi3-grafana']
+                 'NAS/Backup/grafana',
+                 'NAS/Backup/rpi3-unifi']
 
 
 def send_mail(message):
@@ -61,8 +61,11 @@ def get_newest_files(paths):
     result = []
 
     for path in paths:
-        #print(path)
+        print('Processing ' + path)
         files = sftp.listdir_attr(path)
+
+        if len(files) == 0:
+            continue
 
         files.sort(key=lambda f: f.st_mtime, reverse=True)
 
