@@ -13,7 +13,10 @@ paramiko.util.log_to_file("paramiko.log")
 THRESHOLD = 6  # days
 DIRS_TO_CHECK = ['NAS/Backup/rpi3-influxdb',
                  'NAS/Backup/grafana',
-                 'NAS/Backup/rpi3-unifi']
+                 'NAS/Backup/rpi3-unifi',
+                 'NAS/Fronius/data',
+                 'NAS/Fronius/events',
+                 'NAS/Fronius/storage']
 
 
 def send_mail(message):
